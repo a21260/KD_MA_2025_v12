@@ -1,11 +1,14 @@
-/* ====== 下拉卡片 ===== */
-
 html body #MA .box_wrapper{
   overflow: hidden;
 }
 
 html body #MA .box_wrapper ol{
   padding: 0px 30px 30px 45px;
+}
+
+html body #MA a{
+  color: unset;
+  transition: 400ms transform ease;
 }
 
 html body #MA input[type="checkbox"] {
@@ -27,9 +30,10 @@ html body #MA .icon_open{
   height: 20px;
   right: 30px;
   top: 50px;
+
   display: block;
-  background: url("../img/MA_icon_more.svg");
-  transition: transform 0.5s ease-in-out;  
+  background: url("https://raw.githubusercontent.com/a21260/KD_MA_2025/main/MA_icon_more.svg");
+  transition: transform 0.3s ease-in-out;  
 }
 
 html body #MA input[type="checkbox"]:checked + .icon_open {
@@ -40,40 +44,32 @@ html body #MA input[type="checkbox"]:checked ~ .box_content {
   grid-template-rows: 1fr;
 }
 
+
 html body #MA .box_container{
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 10px;
-  padding: 0px 8px;
+  margin: auto;
+  padding-left: 12px;
 }
-
-html body #MA .column{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 html body #MA .box{
   position: relative;
   border-radius: 8px;
-  width: 100%; 
-  background-color: #ffffff;
-  box-shadow: 0px 0px 6px rgba(188, 110, 27, 0.3);
-  transition: box-shadow 0.3s ease;
+  width: calc(50% - 10px);
+  overflow: hidden;
+  box-shadow: 0px 0px 6px rgba(0, 101, 124, 0.3);
 }
 
 html body #MA .box_header{
-  border-radius: 8px;
   background-color: #ffffff;
 }
 
 html body #MA .box_content {
   display: grid;
   grid-template-rows: 0fr;
-  transition: 
-    grid-template-rows 400ms ease,
-    transform 0.1s ease;
+  transition: 400ms grid-template-rows ease;
 }
 
 html body #MA .box_header_content{
@@ -81,54 +77,42 @@ html body #MA .box_header_content{
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  transition: transform 0.1s ease;
-}
-
-html body #MA .box_header_content span{
-  text-align: center;
 }
 
 html body #MA .box_header_content span p{
   display: inline-block;
 }
 
-html body #MA .box_header h3{
-  margin: 0px 15px 0px 5px;
+
+html body #MA .box_header p{
+  background-color: #fff5b3;
+  color: rgb(0, 0, 0);
+  padding: 3px 15px;
+  border-radius: 15px;
+  margin: 5px 5px;
 }
 
-html body #MA #jobs .box_contianer .column .box .box_header img{
-  height: 90px;
+html body #MA .box_header h3{
+  margin: 0px 15px 0px 5px;
+  color:#00657C !important;
+}
+
+html body #MA .box_header img{
+  height: 90px !important;
+  width: auto !important;
   margin: 15px 5px 15px 15px;
 }
 
-/* box hover效果 */
-html body #MA .box::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  box-shadow: 0px 0px 6px rgba(188, 110, 27, 0.6);
-  border-radius: 12px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-html body #MA .box:hover::after {
-  opacity: 1;
-}
-
-html body #MA .box:hover{
-  box-shadow: 0px 0px 0px rgba(188, 110, 27, 0);
-}
-
-/* RWD */
 @media screen and (max-width:1160px){
-  html body #MA .column{
+  html body #MA .box{
     width: 100%;
-    max-width: 900px;
+    max-width: 800px;
   }
   html body #MA .box_container{
-    flex-direction: column;
-    align-items: center;  
+    width: calc(100% - 12px);
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 0px;
   }
 }
 
@@ -143,55 +127,54 @@ html body #MA .box:hover{
   html body #MA .box_header_content span p{
     display:block;
   }
+
 }
 
 @media screen and (max-width:500px){
   html body #MA .box_header_content{
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
   }
-
+  html body #MA .box_header_content span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
   html body #MA .box_header_content span p{
     display:inline-block;
   }
 
-  html body #MA .box_header_content img{
-    margin: 15px 0 0 0;
+  html body #MA .box_header img{
+    margin-bottom: 5px;
+  }
+  html body #MA .box_wrapper ol{
+    padding: 0px 20px 30px 35px;
   }
 
-  html body #MA .box_header h3{
-    margin: 0;
-  }
-
-  html body #MA .box_header_content span{
-    margin: 0 5px 20px 5px;
-  }
-  html body #MA .box_header_content span P{
-    margin-left: 0px;
-    margin-right: 0px;
-  }
+  
 }
 
-/* =====翻轉卡片===== */
+/* =====翻翻卡===== */
 
 html body #MA .card_container{
-  max-width: 900px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
-  gap: 10px;
+  gap: 10px; /* 卡片之間的間距 */
   margin: auto;
 }
-
 html body #MA .card {
-  width: 440px;
-  height: 440px;
-  perspective: 1000px;
-  cursor: pointer;
+  min-width: calc(33.33% - 10px);
+  max-width: calc(100% - 12px);
+  width: 400px;
+  height: 430px;
+  perspective: 1000px; /* 讓 3D 翻轉更立體 */
+  cursor: pointer; /* 滑鼠變成手型 */
   display: block;
-  position: relative;
 }
 
 html body #MA .card-inner {
@@ -199,14 +182,15 @@ html body #MA .card-inner {
   min-height: 100%;
   align-items: stretch;
   transform-style: preserve-3d;
-  transition: transform 0.6s;
+  transition: transform 0.6s; /* 翻轉動畫 */
 }
 
 html body #MA .card-inner.flipped {
   transform: rotateY(180deg);
 }
 
-html body #MA .card-front_and_back {
+html body #MA .card-front,
+html body #MA .card-back {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -214,42 +198,18 @@ html body #MA .card-front_and_back {
   left: 0;
   border-radius: 10px;
   backface-visibility: hidden; /* 隱藏背面 */
-  box-shadow: 0px 0px 6px rgba(188, 110, 27, 0.3);
-  transition: box-shadow 0.3s ease;
-}
-
-html body #MA .img_container{
-  width: 100%;
-  height: 100%;
+  box-shadow: 0px 0px 8px rgba(0, 101, 124, 0.2);
   overflow: hidden;
-  position: absolute;
-}
-
-html body #MA .card-front_and_back::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  box-shadow: 0px 0px 6px rgba(188, 110, 27, 0.6);
-  border-radius: 12px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-html body #MA .card-front_and_back:hover::after {
-  opacity: 1;
-}
-
-html body #MA .card-front_and_back:hover{
-  box-shadow: 0px 0px 0px rgba(188, 110, 27, 0);
 }
 
 html body #MA .card-front img{
-  height: 100%;
+  height: 100% !important;
+  width: auto !important;
   position: absolute;
   top: 20px;
   left: calc(50% + 50px);
   transform: translateX(-50%);
-  object-fit: contain;
+  object-fit: contain; /* 讓圖片不會變形 */
   z-index: -2;
 }
 /* 白色漸層 */
@@ -260,31 +220,28 @@ html body #MA .white_gradient {
   width: 100%;
   height: 100%;
   background: 
-    linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.7) 80%, rgb(255, 255, 255) 100%);
+    linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.8) 80%, rgb(255, 255, 255) 100%);
   pointer-events: none; /* 防止影響點擊 */
   z-index: -1;
 }
-/* 顏色漸層 */
-html body #MA .color_gradient {
+/* 藍色漸層 */
+html body #MA .blue_gradient {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background:radial-gradient(circle at 50% 30%, #fffdef 20%, #ffffff 60%);
+  background:radial-gradient(circle at 50% 30%, #ecf9ff 20%, #ffffff 60%);
   pointer-events: none; /* 防止影響點擊 */
   z-index: -3;
 }
 
 html body #MA .card-back {
-  background: radial-gradient(circle at 50% 30%, #fffdef 20%, #ffffff 60%);
+  background: radial-gradient(circle at 50% 30%, #ecf9ff 20%, #ffffff 60%);
   transform: rotateY(180deg); /* 預設背面翻轉 */
 }
 
-html body #MA .card-front:hover .color_gradient,
-html body #MA .card-back:hover {
-  background: radial-gradient(circle at 50% 30%, #fffad8 20%, #ffffff);
-}
+
 
 html body #MA .card_content{
   width: calc(100% - 60px);  
@@ -294,20 +251,6 @@ html body #MA .card_content{
   align-items: center;
   padding: 30px;
   z-index: 3;
-  overflow: hidden;
-}
-
-html body #MA .card-front .title{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-html body #MA .card-back .title{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
 
 html body #MA .card-front .card_content{
@@ -319,79 +262,80 @@ html body #MA .card-front h3{
   margin-top: 20px;
 }
 
-/* 上浮 */
-html body #MA .card-front p,
-html body #MA .card-front h3{
-  transition: margin 0.5s ease-in-out;
-}
-html body #MA .card:hover .card-front p{
-  margin-bottom: 10px;
-}
-html body #MA .card:hover .card-front h3{
-  margin-top: 13px;
+html body #MA .card-front p, html body #MA .card-front h3{
+  transition: margin 0.5s ease-in-out; /* 設定動畫 */
 }
 
-html body #MA .card:hover .card-front h3, 
-html body #MA .card:hover .card-front .more,
-html body #MA .card:hover .card-back h3{
-  color:#bc6e1b;
-}
-
-html body #MA .card-back .highlight,
-html body #MA .card-back h3{
-  display: inline;
-}
-
-html body #MA .card-back p,
-html body #MA .card-back .title{
+html body #MA .card-back p, html body #MA .card-back h3{
   margin-bottom: 8px;
 }
 
-html body #MA .card-back .highlight{
-  transform: translateY(-15%);
+/* 卡片正面懸停動畫 */
+html body #MA .card-back:hover, html body #MA .card-front:hover .blue_gradient{
+  background: radial-gradient(circle at 50% 30%, #ecf9ff 40%, #ffffff);
 }
 
-/* RWD */
-@media screen and (max-width:444px){
-  html body #MA .card {
-    height: 450px;
+html body #MA .card:hover .card-front p{
+  color:#00657C;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+html body #MA .card:hover .card-front h3{
+  margin-top: 13px;
+  
+}
+
+/* 視窗縮放 */
+
+@media screen and (max-width:1236px){
+  html body #MA .card_container {
+    padding-left: 0px;
   }
 }
 
+/* 單行卡片高度調整 */
+@media screen and (max-width:440px){
+  html body #MA .card_content{
+    width: calc(100% - 40px);  
+    height: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    z-index: 3;
+  }
+}
 @media screen and (max-width:400px){
   html body #MA .card {
-    height: 480px;
+    height: 460px;
   }
 }
-@media screen and (max-width:382px){
+
+@media screen and (max-width:370px){
   html body #MA .card {
-    height: 480px;
-  }
-  html body #MA .card-back p{
-    display: inline;
+    height: 510px;
   }
 }
-@media screen and (max-width:366px){
+@media screen and (max-width:340px){
   html body #MA .card {
-    height: 500px;
+    height: 540px;
   }
 }
-@media screen and (max-width:350px){
+
+@media screen and (max-width:325px){
   html body #MA .card {
-    height: 520px;
-  }
-}
-@media screen and (max-width:334px){
-  html body #MA .card {
-    height: 550px;
+    height: 570px;
   }
 }
 
 
 
 
-/* ===== 輪播圖 ===== */
 
+
+
+/* =======輪播圖========= */
 /* 輪播外框 */
 html body #MA .carousel {
   position: relative;
@@ -402,6 +346,8 @@ html body #MA .carousel {
   margin: auto;
 }
 
+
+
 /* 圖片容器 */
 html body #MA .carousel-track {
   display: flex;
@@ -411,10 +357,11 @@ html body #MA .carousel-track {
 /* 單張圖片 */
 html body #MA .carousel-slide {
   width: 100%;
+  /* height: 400px; */
   object-fit: cover;
 }
 
-/* 按鈕 */
+/* 🔹 左右按鈕（圓形） */
 html body #MA .carousel-btn {
   position: absolute;
   top: 50%;
@@ -425,28 +372,21 @@ html body #MA .carousel-btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  font-size: 26px;
+  font-size: 20px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-html body #MA .prev {
-  left: 10px;
-  padding: 0 2px 2px 0;
-}
-
-html body #MA .next {
-  right: 10px;
-  padding: 0 0 2px 2px;
-}
-
 html body #MA .carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
 }
 
-/* 小圓點 */
+html body #MA .prev { left: 10px; }
+html body #MA .next { right: 10px; }
+
+/* 🔹 小圓點 */
 html body #MA .carousel-dots {
   position: absolute;
   bottom: 10px;
@@ -470,8 +410,7 @@ html body #MA .carousel-dots .active {
   height: 10px;
 }
 
-
-/* RWD */
+/* 🔹 響應式 */
 @media (max-width: 700px) {
   html body #MA .carousel-slide {
       height: auto;
