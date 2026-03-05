@@ -96,7 +96,7 @@ html body #MA .box_header h3{
   margin: 0px 15px 0px 5px;
 }
 
-html body #MA .box_header img{
+html body #MA #jobs .box_contianer .column .box .box_header img{
   height: 90px;
   margin: 15px 5px 15px 15px;
 }
